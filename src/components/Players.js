@@ -19,13 +19,13 @@ const StyledCard = styled(Card)`
 
 const ListLink = ({ list }) => (list ? <a target="_blank" rel="noopener noreferrer" href={list}>List</a> : 'No List Submitted');
 
-const Match = ({ player1, player1Result, player2, player2Result, player1Points, player2Points, player1List, player2List}) => (
+const Match = props => (
   <StyledCard>
     <CardContent>
       <Typography variant="body2" align="center">
-        {player1} ({player1Points}, {player1Result}, <ListLink list={player1List} />)<br/>
+        {props.player1} ({props.player1Points}, {props.player1Result}, <ListLink list={props.player1List} />)<br/>
         vs.<br />
-        {player2} ({player2Points}, {player2Result}, <ListLink list={player2List} />)
+        {props.player2} ({props.player2Points}, {props.player2Result}, <ListLink list={props.player2List} />)
       </Typography>
     </CardContent>
   </StyledCard>

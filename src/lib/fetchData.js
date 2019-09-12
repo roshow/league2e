@@ -32,13 +32,12 @@ export const fetchSheets = async (sheetNames) => {
 };
 
 export const fetchLeagueData = async () => {
-  const { divisions, players, matches, schedule } = await fetchSheets(SHEET_NAMES);
+  const { divisions, players, matches } = await fetchSheets(SHEET_NAMES);
   const playersWithScore = getPlayersWithScore(players, matches);
   const results = getAllDivisionsStandings(divisions, playersWithScore);
   return {
     divisions,
     matches,
-    schedule,
     results,
     players: playersWithScore,
   };

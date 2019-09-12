@@ -1,50 +1,43 @@
 import { MATCH_RESULTS } from './../constants';
 
-const roundToThreeDecimals = num => parseFloat(num.toFixed(3));
+export const getMatchesForPlayer = (playerName, matches) => 
+  matches.filter(({ player1, player2 }) => (player1 === playerName || player2 === playerName));
 
-export const getMatchesForPlayer = (player, matches) => 
-  matches.filter(({ player1, player2 }) => (player1 === player || player2 === player));
+const calcPlayerScores = (playerName, allMatches) => {
+  const matchesPlayed = getMatchesForPlayer(playerName, allMatches);
 
-export const calcPlayerScore = (player, matches) => {
-  const matchesPlayed = getMatchesForPlayer(player, matches);
-  let totalPoints = 0;
-  const numOfMatchesPlayed = matchesPlayed.length;
-  for (let i = 0; i < numOfMatchesPlayed; i++) {
-    const { player1, player1Result, player2, player2Result } = matchesPlayed[i];
-    if (
-      (player1 === player && player1Result === MATCH_RESULTS.WIN)
-      || (player2 === player && player2Result === MATCH_RESULTS.WIN)
-    ) {
-      totalPoints = totalPoints + 1;
-    }
-  }
-  return numOfMatchesPlayed > 0 ? roundToThreeDecimals(totalPoints / numOfMatchesPlayed) : 0;
-};
+  let score = 0;
+  let mov = 0;
+  const gamesPlayed = matchesPlayed.length;
 
-export const calcPlayerMOV = (player, matches) => {
-  const matchesPlayed = getMatchesForPlayer(player, matches);
-  let totalMOV = 0;
-  const numOfMatchesPlayed = matchesPlayed.length;
-  for (let i = 0; i < numOfMatchesPlayed; i++) {
+  for (let i = 0; i < gamesPlayed; i++) {
     const { player1, player1Result, player1Points, player2Result, player2Points } = matchesPlayed[i];
+
     const pointsDiff = Math.abs(player1Points - player2Points);
-    const result = player1 === player ? player1Result : player2Result;
-    let mov;
-    if (result === MATCH_RESULTS.WIN) {
-      mov = 200 + pointsDiff;
-    } else {
-      mov = 200 - pointsDiff;
+
+    const playerResult = player1 === playerName ? player1Result : player2Result;
+
+    if (playerResult === MATCH_RESULTS.WIN) {
+      score += 1;
+      mov += (200 + pointsDiff);
+    
+    } else { 
+      mov += (200 - pointsDiff);
     }
-    totalMOV += mov;
+    
   }
-  return totalMOV;
+
+  return {
+    score,
+    mov,
+    gamesPlayed,
+  };
+
 }
 
 export const getPlayersWithScore = (players, matches) => players.map(player => ({
   ...player,
-  score: calcPlayerScore(player.name, matches),
-  mov: calcPlayerMOV(player.name, matches),
-  gamesPlayed: getMatchesForPlayer(player.name, matches).length,
+  ...calcPlayerScores(player.name, matches),
 }));
 
 // assumes players have had score calculated and added to object

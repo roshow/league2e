@@ -6,13 +6,11 @@ import Tab from '@material-ui/core/Tab';
 // import Typography from '@material-ui/core/Typography';
 import Standings from './Standings';
 import Players from './Players';
-import Schedule from './Schedule';
 import Info from './Info';
 
 const SECTIONS = {
   STANDINGS: 'STANDINGS',
   PLAYERS: 'PLAYERS',
-  SCHEDULE: 'SCHEDULE',
   INFO: 'INFO',
 };
 
@@ -43,7 +41,6 @@ const Pages = () => {
         <div>
           {section === SECTIONS.STANDINGS && <Standings />}
           {section === SECTIONS.PLAYERS && <Players />}
-          {section === SECTIONS.SCHEDULE && <Schedule />}
           {section === SECTIONS.INFO && <Info />}
         </div>
       </Section>

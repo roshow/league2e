@@ -5,9 +5,9 @@ export const MATCH_RESULTS = {
 
 export const GOOGLE_API_KEY = 'AIzaSyBOHP4QztLnKFYtvbc1t39-s28obTuywds';
 
-export const GOOGLE_SHEETS_ID = '1VoiCPaUQyFUWl4BqdB-FaGf97OUFa2gpnAN-f-ZMUkc'; // season 1
+export const GOOGLE_SHEETS_ID = '1vSgg83yTqv0SyvZnReyRnGLzDjRxMWhtZPx92LICKH4'; // season 2
 // export const GOOGLE_SHEETS_ID = '1SuigINFbgfZkgyUXCpO_Z_LYVXpkPE_TpHXPWgBtnH0';  // test data
-export const SHEET_NAMES = [ 'divisions', 'players', 'matches', 'schedule' ];
+export const SHEET_NAMES = [ 'divisions', 'players', 'matches' ];
 
 
-export const GOOGLE_DOC_ID = '2PACX-1vQIjspDX5mZo_-rGHOn9EqG0Vm_NXyeu-04WQZEoduxbrWAc4lasoTzDJd-V4xP6J6geXQt6rVLV2w_';
+export const GOOGLE_DOC_ID = '2PACX-1vSkhqjw9aTFrlf7SuVDvtfeUMntOkmbRT4mfLynQtir57CjDgUVJI7FGSlIUZQekyIC37Bw4L0ABgrb';

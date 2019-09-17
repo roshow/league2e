@@ -75,7 +75,7 @@ const Players = () => {
         <Typography variant="h6">Division: {player.division}</Typography>
           <Typography variant="h6">Score: {player.score}</Typography>
           <Typography variant="h6">Games Played: {player.gamesPlayed}</Typography>
-          <Typography variant="h6">Avg MOV: {player.mov}</Typography>
+          <Typography variant="h6">MOV: {player.mov}</Typography>
           <div>
             <Typography variant="h6">Matches:</Typography>
             {matchesForPlayer.length

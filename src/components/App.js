@@ -19,20 +19,16 @@ const StyledApp = styled.div`
 `;
 
 const App = () => (
-  <React.Fragment>
-
+  <>
     <CssBaseline />
-  
     <GlobalStyle />
-  
     <LeagueDataProvider>
       <StyledApp>
         <HeroImage />
         <Pages />
       </StyledApp>
     </LeagueDataProvider>
-  
-  </React.Fragment>
+  </>
 );
 
 export default App;

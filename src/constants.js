@@ -3,6 +3,8 @@ export const MATCH_RESULTS = {
   LOSS: 'loss',
 };
 
+export const MAX_GAMES = 8;
+
 export const GOOGLE_API_KEY = 'AIzaSyBOHP4QztLnKFYtvbc1t39-s28obTuywds';
 
 export const GOOGLE_SHEETS_ID = '1vSgg83yTqv0SyvZnReyRnGLzDjRxMWhtZPx92LICKH4'; // season 2

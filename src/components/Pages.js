@@ -31,7 +31,7 @@ const Pages = () => {
   const changeSection = (event, value) => setSection(value);
 
   return (
-    <React.Fragment>
+    <>
       <AppBar position="static">
         <Tabs value={section} onChange={changeSection}>
           {Object.values(SECTIONS).map(section => <Tab key={section} label={section} value={section} />)}
@@ -44,7 +44,7 @@ const Pages = () => {
           {section === SECTIONS.INFO && <Info />}
         </div>
       </Section>
-    </React.Fragment>
+    </>
   );
 }
 

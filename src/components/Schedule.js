@@ -25,7 +25,7 @@ const Schedule = () => {
   const { schedule, divisions } = useContext(LeagueDataContext);
   
   return (
-    <React.Fragment>
+    <>
       {
         divisions.map(({ name }) => (
           <StyledPaper key={name}>
@@ -53,7 +53,7 @@ const Schedule = () => {
           </StyledPaper>
         ))
       }
-    </React.Fragment>
+    </>
   );
 
 }

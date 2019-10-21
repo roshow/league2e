@@ -23,9 +23,9 @@ const Match = props => (
   <StyledCard>
     <CardContent>
       <Typography variant="body2" align="center">
-        {props.player1} ({props.player1Points}, {props.player1Result}, <ListLink list={props.player1List} />)<br/>
+        {props.player1} ({props.player1Points}, {props.player1Result || 'loss'}, <ListLink list={props.player1List} />)<br/>
         vs.<br />
-        {props.player2} ({props.player2Points}, {props.player2Result}, <ListLink list={props.player2List} />)
+        {props.player2} ({props.player2Points}, {props.player2Result || 'loss'}, <ListLink list={props.player2List} />)
       </Typography>
     </CardContent>
   </StyledCard>
@@ -76,6 +76,9 @@ const Players = () => {
           <Typography variant="h6">Score: {player.score}</Typography>
           <Typography variant="h6">Games Played: {player.gamesPlayed}</Typography>
           <Typography variant="h6">MOV: {player.mov}</Typography>
+          <Typography variant="h6">Total Wins: {player.totalWins}</Typography>
+          <Typography variant="h6">Total Games Played: {player.totalGamesPlayed}</Typography>
+          <Typography variant="h6">Total MOV: {player.totalMov}</Typography>
           <div>
             <Typography variant="h6">Matches:</Typography>
             {matchesForPlayer.length

@@ -8,9 +8,13 @@ const calcPlayerScores = (playerName, allMatches) => {
 
   let score = 0;
   let mov = 0;
-  const gamesPlayed = matches.length > MAX_GAMES ? MAX_GAMES : matches.length;
+  let totalMov = 0;
+  let totalWins = 0;
+  const totalGamesPlayed = matches.length;
+  const gamesPlayed = totalGamesPlayed > MAX_GAMES ? MAX_GAMES : totalGamesPlayed;
+  
 
-  for (let i = 0; i < gamesPlayed; i++) {
+  for (let i = 0; i < totalGamesPlayed; i++) {
     const { player1, player1Result, player1Points, player2Result, player2Points } = matches[i];
 
     const pointsDiff = Math.abs(player1Points - player2Points);
@@ -18,11 +22,18 @@ const calcPlayerScores = (playerName, allMatches) => {
     const playerResult = player1 === playerName ? player1Result : player2Result;
 
     if (playerResult === MATCH_RESULTS.WIN) {
-      score += 1;
-      mov += (200 + pointsDiff);
+      totalWins += 1;
+      totalMov += (200 + pointsDiff);
+      if (i < MAX_GAMES) {
+        score += 1;
+        mov += (200 + pointsDiff);
+      }
     
     } else { 
-      mov += (200 - pointsDiff);
+      totalMov += (200 - pointsDiff);
+      if (i < MAX_GAMES) {
+        mov += (200 - pointsDiff);
+      }
     }
 
   }
@@ -31,6 +42,9 @@ const calcPlayerScores = (playerName, allMatches) => {
     score,
     mov,
     gamesPlayed,
+    totalGamesPlayed,
+    totalWins,
+    totalMov,
   };
 
 }
